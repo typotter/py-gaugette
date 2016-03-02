@@ -1,11 +1,13 @@
 import wiringpi2
+import gaugette.gpio as gpio
+
 
 class Switch:
 
     def __init__(self, pin, pullUp=True):
         self.pin = pin
         self.pullUp = pullUp
-        self.gpio = wiringpi2.GPIO(wiringpi2.GPIO.WPI_MODE_PINS)
+        self.gpio = gpio.get_instance().gpio
         self.gpio.pinMode(self.pin, self.gpio.INPUT)
         if self.pullUp:
             self.gpio.pullUpDnControl(self.pin, self.gpio.PUD_UP)

@@ -3,7 +3,7 @@ import gaugette.gpio
 class CapSwitch:
     def __init__(self, pin):
         self.pin = pin
-        self.gpio = gaugette.gpio.GPIO()
+        self.gpio = gaugette.gpio.get_instance()
         self.gpio.setup(self.pin, self.gpio.OUT)
         self.maxCycles = 100
         self.repeats = 2

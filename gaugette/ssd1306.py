@@ -115,7 +115,7 @@ class SSD1306:
         self.dc_pin = dc_pin
         self.reset_pin = reset_pin
         self.spi = gaugette.spi.SPI(bus, device)
-        self.gpio = gaugette.gpio.GPIO()
+        self.gpio = gaugette.gpio.get_instance()
         self.gpio.setup(self.reset_pin, self.gpio.OUT)
         self.gpio.output(self.reset_pin, self.gpio.HIGH)
         self.gpio.setup(self.dc_pin, self.gpio.OUT)
