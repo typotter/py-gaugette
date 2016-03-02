@@ -37,8 +37,7 @@ class RotaryEncoder:
     def __init__(self, a_pin, b_pin):
         self.a_pin = a_pin
         self.b_pin = b_pin
-
-        self.gpio = gaugette.gpio.GPIO()
+        self.gpio = gaugette.gpio.get_instance()
 
         self.gpio.setup(self.a_pin, self.gpio.IN, self.gpio.PUD_UP)
         self.gpio.setup(self.b_pin, self.gpio.IN, self.gpio.PUD_UP)

@@ -11,6 +11,13 @@
 #----------------------------------------------------------------------
 import gaugette.platform
 
+instance = None
+def get_instance():
+    global instance
+    if instance is None:
+        instance = GPIO()
+    return instance
+    
 class GPIO:
     def __init__(self):
         if gaugette.platform.isRaspberryPi:
